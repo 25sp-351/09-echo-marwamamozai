@@ -1,0 +1,16 @@
+# Makefile for the echo server
+
+CC = gcc
+CFLAGS = -Wall -pthread
+
+all: server
+
+server: server.o
+	$(CC) $(CFLAGS) server.o -o server  # This line must start with a tab
+
+ 
+server.o: server.c
+	$(CC) $(CFLAGS) -c server.c  # This line must also start with a tab
+
+clean:
+	rm -f *.o server

@@ -1,0 +1,15 @@
+# Makefile for the echo server
+
+CC = gcc
+CFLAGS = -Wall -pthread
+
+all: server
+
+server: server.o
+    $(CC) $(CFLAGS) server.o -o server
+
+server.o: server.c
+    $(CC) $(CFLAGS) -c server.c
+
+clean:
+    rm -f *.o server
